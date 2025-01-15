@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './App.css';
 
+
 const App: React.FC = () => {
   const [formData, setFormData] = useState({
     fullName: '',
@@ -42,19 +43,44 @@ const App: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby4J1mSc8KOOwCHb6sPArPtP3-uy-tXZYgK5WY-djBXee2h1Y8P7p0J_VlTPyMrGKMf5w/exec';
+
+    /*const scriptURL = 'https://script.google.com/macros/s/AKfycbxgLNwfgkSDnjpsDPEWohq-ggphmKUpdsfPeIiNobsrnqbmrbwfDKNr12phRAqv760huQ/exec';
+    await fetch(scriptURL, {
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      mode:'cors'
+    }).then((r) => {
+      if (r.status === 200) {
+        console.log('Data sent to Google Sheets successfully');
+      }
+      else {
+        console.error('Error sending data to Google Sheets');
+      }
+    }).catch((error) => {
+      console.error('Error sending data to Google Sheets:', error);
+    });
+
+
+
     try {
-      await fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(formData),
+      await axios.post(scriptURL, formData, {
         headers: {
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*'
         }
+      }).then((response) => {
+        console.log('Data sent to Google Sheets successfully', response);
+      }).catch((error) => {
+        console.error('response - Error sending data to Google Sheets:', error);
       });
     } catch (error) {
-      console.error('Error sending data to Google Sheets:', error);
+      console.error('try/catch - Error sending data to Google Sheets:', error);
     }
+    */
 
     const serviceID = 'service_1ai7fib';
     const templateID = 'template_h31ao92';
@@ -136,6 +162,7 @@ const App: React.FC = () => {
 
         <label className="block mb-2">¿Qué herramientas digitales utilizas en tu día a día?</label>
         <select multiple name="digitalTools" value={formData.digitalTools} onChange={handleMultiSelectChange} className="w-full p-2 border rounded mb-4">
+        <option value="">Seleccione varias opciones</option>
           <option value="CRM">CRM (Customer Relationship Management)</option>
           <option value="ERP">ERP (Enterprise Resource Planning)</option>
           <option value="Marketing Automation">Herramientas de Automatización de Marketing</option>
@@ -151,6 +178,7 @@ const App: React.FC = () => {
 
         <label className="block mb-2">¿Qué áreas de tu empresa crees que podrían beneficiarse más de la IA?</label>
         <select multiple name="aiBenefits" value={formData.aiBenefits} onChange={handleMultiSelectChange} className="w-full p-2 border rounded mb-4">
+          <option value="" >Seleccione Varias opciones</option>
           <option value="Atención al Cliente">Atención al Cliente</option>
           <option value="Ventas">Ventas</option>
           <option value="Marketing">Marketing</option>
