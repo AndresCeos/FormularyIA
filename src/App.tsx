@@ -43,11 +43,31 @@ const App: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const data = new FormData();
+    data.append('fullName', formData.fullName);
+    data.append('corporateEmail', formData.corporateEmail);
+    data.append('contactNumber', formData.contactNumber);
+    data.append('currentPosition', formData.currentPosition);
+    data.append('companyName', formData.companyName);
+    data.append('companySector', formData.companySector);
+    data.append('aiExperience', formData.aiExperience);
+    data.append('digitalTools', JSON.stringify(formData.digitalTools));
+    data.append('courseInterest', formData.courseInterest);
+    data.append('aiBenefits', JSON.stringify(formData.aiBenefits));
+    data.append('aiImplementation', formData.aiImplementation);
+    data.append('aiUnderstanding', formData.aiUnderstanding);
+    data.append('automationKnowledge', formData.automationKnowledge.toString());
+    data.append('predictiveAnalysis', formData.predictiveAnalysis.toString());
+    data.append('chatbotsKnowledge', formData.chatbotsKnowledge.toString());
+    data.append('contentGenerationKnowledge', formData.contentGenerationKnowledge.toString());
+    data.append('receiveMaterials', formData.receiveMaterials.toString());
+    data.append('dataConsent', formData.dataConsent.toString());
+    data.append('additionalComments', formData.additionalComments);
 
-    /*const scriptURL = 'https://script.google.com/macros/s/AKfycbxgLNwfgkSDnjpsDPEWohq-ggphmKUpdsfPeIiNobsrnqbmrbwfDKNr12phRAqv760huQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxUgVOWFpXXD1clf3iK-YipaXwe6W4sI1ljjXSh4J0D0tbXPSWYZGZa2Bo90s__lGD1rw/exec';
     await fetch(scriptURL, {
       method: 'POST',
-      body: JSON.stringify(formData),
+      body: data,
       headers: {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
@@ -65,23 +85,6 @@ const App: React.FC = () => {
     });
 
 
-
-    try {
-      await axios.post(scriptURL, formData, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
-      }).then((response) => {
-        console.log('Data sent to Google Sheets successfully', response);
-      }).catch((error) => {
-        console.error('response - Error sending data to Google Sheets:', error);
-      });
-    } catch (error) {
-      console.error('try/catch - Error sending data to Google Sheets:', error);
-    }
-    */
-
     const serviceID = 'service_1ai7fib';
     const templateID = 'template_h31ao92';
     const userID = 'k3Gtkyg7rjueQ6Ff2';
@@ -93,7 +96,6 @@ const App: React.FC = () => {
       .catch((error) => {
         console.error('Error sending email:', error);
       });
-
     console.log('Form data submitted:', formData);
 
     setFormData({
