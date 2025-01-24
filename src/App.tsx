@@ -109,7 +109,7 @@ const App: React.FC = () => {
         <h2 className="text-2xl font-bold mb-4">Formulario de Registro: Curso de IA para Directores</h2>
         <div className='flex justify-between my-5 py-5'>
           <span className='bg-blue-500 text-white px-4 py-2 rounded-sm'>Precio: $18,000 MXN</span>
-          <span className='bg-blue-500 text-white px-4 py-2 rounded-sm'><a href='https://selecto.liderempresarial.com/wp-content/uploads/2025/01/temario.pdf' target="_blank" rel="noopener noreferrer" download="temario.pdf" type="application/pdf">Descargar Temario</a></span>
+          <span className='bg-blue-500 text-white px-4 py-2 rounded-sm'><a href='/pdf/temario.pdf' target="_blank" rel="noopener noreferrer" download="temario.pdf" type="application/pdf">Descargar Temario</a></span>
         </div>
 
         {/* Sección 1: Información Personal y Profesional */}
