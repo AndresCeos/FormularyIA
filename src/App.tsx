@@ -108,8 +108,8 @@ const App: React.FC = () => {
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-2xl">
         <h2 className="text-2xl font-bold mb-4">Formulario de Registro: Curso de IA para Directores</h2>
         <div className='flex justify-between my-5 py-5'>
-          <span>Precio: $18,000 MXN</span>
-          <span><a href='/src/assets/temario.pdf' target="_blank" rel="noopener noreferrer" download>Descargar Temario</a></span>
+          <span className='bg-blue-500 text-white px-4 py-2 rounded-sm'>Precio: $18,000 MXN</span>
+          <span className='bg-blue-500 text-white px-4 py-2 rounded-sm'><a href='/src/assets/temario.pdf' target="_blank" rel="noopener noreferrer" download>Descargar Temario</a></span>
         </div>
 
         {/* Sección 1: Información Personal y Profesional */}
