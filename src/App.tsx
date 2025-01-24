@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import './App.css';
+import Swal from 'sweetalert2';
 
 
 const App: React.FC = () => {
@@ -72,6 +73,12 @@ const App: React.FC = () => {
         console.error('Error sending email:', error);
       });
     console.log('Form data submitted:', formData);
+    Swal.fire({
+      title: 'Formulario enviado',
+      text: 'Datos enviados con éxito',
+      icon: 'success',
+      confirmButtonText: 'Cerrar'
+    })
 
     setFormData({
       fullName: '',
@@ -100,6 +107,10 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded shadow-md w-full max-w-2xl">
         <h2 className="text-2xl font-bold mb-4">Formulario de Registro: Curso de IA para Directores</h2>
+        <div className='flex justify-between my-5 py-5'>
+          <span>Precio: $18,000 MXN</span>
+          <span><a href='/src/assets/temario.pdf' target="_blank" rel="noopener noreferrer" download>Descargar Temario</a></span>
+        </div>
 
         {/* Sección 1: Información Personal y Profesional */}
         <h3 className="text-xl font-semibold mb-2">Sección 1: Información Personal y Profesional</h3>
